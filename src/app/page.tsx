@@ -1,24 +1,5 @@
-import {
-  HeroSection,
-  CountdownBanner,
-  ProductShowcase,
-  EditorialBanner,
-  CollectionExplore,
-  LoyaltyCTA,
-} from "@/features/home";
-import { homeProductSections } from "@/features/products/data/products";
+import { Wake360HomePage } from "@/features/wake360";
 
 export default function HomePage() {
-  return (
-    <>
-      <HeroSection />
-      <CountdownBanner />
-      {homeProductSections.map((section) => (
-        <ProductShowcase key={section.id} section={section} />
-      ))}
-      <EditorialBanner />
-      <CollectionExplore />
-      <LoyaltyCTA />
-    </>
-  );
+  return <Wake360HomePage />;
 }

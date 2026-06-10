@@ -66,7 +66,7 @@ export const collectionDetails: Record<string, Collection & { heroImage: string 
   },
   nfl: {
     slug: "nfl",
-    name: "North Row × NFL",
+    name: "FLOW × NFL",
     description: "Fanatics Presents — limited collaboration collection.",
     image: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=900&q=80",
     heroImage: "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=1600&q=80",

@@ -408,7 +408,7 @@ export const nflProducts: Product[] = [
   {
     id: "nfl-1",
     slug: "cowboys-hoodie-cream-marl",
-    name: "Dallas Cowboys x North Row Hoodie",
+    name: "Dallas Cowboys x FLOW Hoodie",
     color: "Cream Marl",
     colorCount: 4,
     price: 7990000,
@@ -420,7 +420,7 @@ export const nflProducts: Product[] = [
   {
     id: "nfl-2",
     slug: "nfl-shield-hoodie-stained-black",
-    name: "NFL Shield x North Row Hoodie",
+    name: "NFL Shield x FLOW Hoodie",
     color: "Stained Black",
     colorCount: 4,
     price: 7990000,
@@ -432,7 +432,7 @@ export const nflProducts: Product[] = [
   {
     id: "nfl-3",
     slug: "eagles-hoodie-vintage-grey",
-    name: "Philadelphia Eagles x North Row Hoodie",
+    name: "Philadelphia Eagles x FLOW Hoodie",
     color: "Vintage Grey",
     colorCount: 4,
     price: 7990000,
@@ -444,7 +444,7 @@ export const nflProducts: Product[] = [
   {
     id: "nfl-4",
     slug: "cowboys-tshirt-washed-ecru",
-    name: "Dallas Cowboys x North Row T-Shirt",
+    name: "Dallas Cowboys x FLOW T-Shirt",
     color: "Washed Ecru",
     colorCount: 4,
     price: 4890000,
@@ -456,7 +456,7 @@ export const nflProducts: Product[] = [
   {
     id: "nfl-5",
     slug: "rams-tshirt-stained-black",
-    name: "Los Angeles Rams x North Row T-Shirt",
+    name: "Los Angeles Rams x FLOW T-Shirt",
     color: "Stained Black",
     colorCount: 4,
     price: 4890000,
@@ -468,7 +468,7 @@ export const nflProducts: Product[] = [
   {
     id: "nfl-6",
     slug: "cowboys-cap-antique-white",
-    name: "Dallas Cowboys x North Row Cap",
+    name: "Dallas Cowboys x FLOW Cap",
     color: "Antique White",
     colorCount: 4,
     price: 3410000,
@@ -612,7 +612,7 @@ export const homeProductSections: ProductSection[] = [
   {
     id: "nfl",
     eyebrow: "Fanatics Presents",
-    title: "North Row × NFL",
+    title: "FLOW × NFL",
     href: "/collections/nfl",
     ctaLabel: "Shop Now",
     products: nflProducts,

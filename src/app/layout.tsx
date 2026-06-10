@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { MainLayout } from "@/shared/components/layout";
+import { brandTitle } from "@/shared/constants/brand";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -10,7 +11,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "North Row | Luxury Streetwear",
+  title: brandTitle(),
   description:
     "Khám phá bộ sưu tập streetwear cao cấp — Owners Club, SS26, 247 Activewear và Initial.",
 };

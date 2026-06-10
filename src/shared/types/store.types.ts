@@ -7,9 +7,12 @@ export type CartItem = {
   quantity: number;
 };
 
+export type UserRole = "admin" | "customer";
+
 export type User = {
   email: string;
   name: string;
+  role: UserRole;
 };
 
 export type ShopFilter = "new" | "bestsellers" | null;
