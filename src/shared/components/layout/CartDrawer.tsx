@@ -60,7 +60,7 @@ export function CartDrawer() {
                   <p className="mt-2 text-xs text-neutral-600">
                     Thêm sản phẩm để bắt đầu mua sắm
                   </p>
-                  <Link href="/shop" onClick={closeCart} className="mt-6">
+                  <Link href="/cua-hang" onClick={closeCart} className="mt-6">
                     <Button variant="secondary">Khám phá shop</Button>
                   </Link>
                 </div>
@@ -69,7 +69,7 @@ export function CartDrawer() {
                   {cart.map((item) => (
                     <li key={item.key} className="flex gap-4 border-b border-neutral-800 pb-6">
                       <Link
-                        href={`/shop/${item.product.slug}`}
+                        href={`/san-pham/${item.product.slug}`}
                         onClick={closeCart}
                         className="relative h-28 w-20 shrink-0 overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900"
                       >
@@ -83,7 +83,7 @@ export function CartDrawer() {
                       </Link>
                       <div className="min-w-0 flex-1">
                         <Link
-                          href={`/shop/${item.product.slug}`}
+                          href={`/san-pham/${item.product.slug}`}
                           onClick={closeCart}
                           className="block truncate text-sm text-white hover:underline"
                         >

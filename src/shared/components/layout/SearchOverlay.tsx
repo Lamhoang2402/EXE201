@@ -4,11 +4,11 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { allProducts } from "@/features/products/data/products";
+import { flowCatalogProducts } from "@/features/flow/data/catalog";
+import { formatFlowPrice } from "@/features/flow/data/catalogHelpers";
 import { useApp } from "@/shared/context/AppProvider";
-import { formatPrice } from "@/shared/utils/formatPrice";
 
-const popularSearches = ["Hoodie", "Owners Club", "247", "T-Shirt", "Initial"];
+const popularSearches = ["Daily", "Training", "Tanktop", "Shorts", "Hoodie"];
 
 export function SearchOverlay() {
   const { isSearchOpen, closeSearch } = useApp();
@@ -35,12 +35,11 @@ export function SearchOverlay() {
   const results = useMemo(() => {
     const term = query.trim().toLowerCase();
     if (!term) return [];
-    return allProducts
+    return flowCatalogProducts
       .filter(
         (product) =>
           product.name.toLowerCase().includes(term) ||
-          product.color.toLowerCase().includes(term) ||
-          product.category?.toLowerCase().includes(term),
+          product.collection.toLowerCase().includes(term),
       )
       .slice(0, 8);
   }, [query]);
@@ -60,7 +59,7 @@ export function SearchOverlay() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-x-0 top-0 z-[70] border-b border-neutral-800 bg-neutral-950"
+            className="fixed inset-x-0 top-0 z-[70] border-b border-neutral-200 bg-white"
           >
             <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
               <div className="mb-6 flex items-center justify-between">
@@ -70,7 +69,7 @@ export function SearchOverlay() {
                 <button
                   type="button"
                   onClick={closeSearch}
-                  className="text-neutral-400 hover:text-white"
+                  className="text-neutral-400 transition-colors hover:text-neutral-900"
                   aria-label="Đóng tìm kiếm"
                 >
                   ✕
@@ -81,8 +80,8 @@ export function SearchOverlay() {
                 autoFocus
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Tìm sản phẩm, bộ sưu tập..."
-                className="h-12 w-full border-b border-neutral-700 bg-transparent text-lg text-white placeholder:text-neutral-600 focus:border-white focus:outline-none"
+                placeholder="Tìm sản phẩm..."
+                className="h-12 w-full border-b border-neutral-300 bg-transparent text-lg text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none"
               />
 
               {query.trim() === "" ? (
@@ -96,7 +95,7 @@ export function SearchOverlay() {
                         key={term}
                         type="button"
                         onClick={() => setQuery(term)}
-                        className="rounded-full border border-neutral-800 px-3 py-1.5 text-xs text-neutral-400 transition-all duration-300 hover:border-neutral-600 hover:bg-white/5 hover:text-white"
+                        className="rounded-full border border-neutral-300 px-3 py-1.5 text-xs text-neutral-600 transition-colors hover:border-neutral-900 hover:text-neutral-900"
                       >
                         {term}
                       </button>
@@ -106,15 +105,15 @@ export function SearchOverlay() {
               ) : results.length === 0 ? (
                 <p className="mt-8 text-sm text-neutral-500">Không tìm thấy kết quả</p>
               ) : (
-                <ul className="mt-6 divide-y divide-neutral-800">
+                <ul className="mt-6 divide-y divide-neutral-200">
                   {results.map((product) => (
                     <li key={product.id}>
                       <Link
-                        href={`/shop/${product.slug}`}
+                        href={product.href}
                         onClick={closeSearch}
                         className="flex items-center gap-4 py-4 transition-opacity hover:opacity-80"
                       >
-                        <div className="relative h-16 w-12 shrink-0 overflow-hidden bg-neutral-900">
+                        <div className="relative h-16 w-12 shrink-0 overflow-hidden bg-neutral-100">
                           <Image
                             src={product.image}
                             alt={product.name}
@@ -124,11 +123,11 @@ export function SearchOverlay() {
                           />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="truncate text-sm text-white">{product.name}</p>
-                          <p className="text-xs text-neutral-500">{product.color}</p>
+                          <p className="truncate text-sm text-neutral-900">{product.name}</p>
+                          <p className="text-xs capitalize text-neutral-500">{product.collection}</p>
                         </div>
-                        <span className="text-sm text-neutral-300">
-                          {formatPrice(product.price)}
+                        <span className="text-sm text-neutral-700">
+                          {formatFlowPrice(product.price)}
                         </span>
                       </Link>
                     </li>

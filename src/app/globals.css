@@ -40,3 +40,27 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.wake360-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.wake360-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: wake360-scroll 40s linear infinite;
+}
+
+.wake360-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes wake360-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
